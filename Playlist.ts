@@ -1,5 +1,6 @@
+import { IVisitor } from "./IVisitor";
 import { Musica } from "./Musica";
-export class Playlist {
+export class Playlist implements IVisitavel {
   titulo: String;
   musicas: Musica[];
 
@@ -27,5 +28,10 @@ export class Playlist {
         } segundos)`
       );
     });
+  }
+
+  accept(visitor: IVisitor): void {
+    visitor.visitPlaylist(this);
+    this.musicas.forEach((musica) => musica.accept(visitor));
   }
 }

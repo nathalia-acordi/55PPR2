@@ -1,4 +1,4 @@
-import { EstadoMusica } from "./EstadoMusica";
+import { EstadoMusica } from "./IEstadoMusica";
 import { Musica } from "./Musica";
 import { Reproduzindo } from "./Reproduzindo";
 import { Concluida } from "./Concluida";

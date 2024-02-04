@@ -1,5 +1,6 @@
+import { IComponenteMusical } from "./IComponenteMusical";
 import { Musica } from "./Musica";
-export class Album {
+export class Album implements IComponenteMusical {
   titulo: String;
   anoLancamento: String;
   musicas: Musica[];
@@ -12,6 +13,11 @@ export class Album {
 
   adicionarMusica(musica: Musica): void {
     this.musicas.push(musica);
+  }
+
+  play(): void {
+    console.log(`Reproduzindo álbum: ${this.titulo}`);
+    this.musicas.forEach((musica) => musica.play());
   }
 
   removerMusica(tituloMusica: string): void {

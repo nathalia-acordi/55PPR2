@@ -1,7 +1,8 @@
 import { Artista } from "./Artista";
-import { EstadoMusica } from "./EstadoMusica";
+import { EstadoMusica } from "./IEstadoMusica";
 import { Concluida } from "./Concluida";
-export class Musica {
+import { IComponenteMusical } from "./IComponenteMusical";
+export class Musica implements IComponenteMusical {
   titulo: string;
   duracao: number;
   genero: string;
