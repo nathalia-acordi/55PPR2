@@ -1,6 +1,8 @@
 import { IComponenteMusical } from "./IComponenteMusical";
+import { IVisitavel } from "./IVisitavel";
+import { IVisitor } from "./IVisitor";
 import { Musica } from "./Musica";
-export class Album implements IComponenteMusical {
+export class Album implements IComponenteMusical, IVisitavel {
   titulo: String;
   anoLancamento: String;
   musicas: Musica[];
@@ -9,6 +11,11 @@ export class Album implements IComponenteMusical {
     this.titulo = titulo;
     this.anoLancamento = anoLancamento;
     this.musicas = [];
+  }
+
+  accept(visitor: IVisitor): void {
+     visitor.visitAlbum(this);
+    this.musicas.forEach((musica) => musica.accept(visitor));
   }
 
   adicionarMusica(musica: Musica): void {

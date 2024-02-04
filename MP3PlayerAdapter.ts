@@ -1,6 +1,7 @@
 import { MP3Player } from "./MP3Player";
 import { ReprodutorMusical } from "./ReprodutorMusical";
 
+
 export class MP3PlayerAdapter implements ReprodutorMusical {
   private mp3Player: MP3Player;
 

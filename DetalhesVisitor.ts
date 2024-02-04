@@ -1,6 +1,7 @@
 import { Musica } from "./Musica";
 import { Album } from "./Album";
 import { Playlist } from "./Playlist";
+import { IVisitor } from "./IVisitor";
 
 export class DetalhesVisitor implements IVisitor {
   visitMusica(musica: Musica): void {

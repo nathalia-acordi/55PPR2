@@ -2,7 +2,10 @@ import { Artista } from "./Artista";
 import { EstadoMusica } from "./IEstadoMusica";
 import { Concluida } from "./Concluida";
 import { IComponenteMusical } from "./IComponenteMusical";
-export class Musica implements IComponenteMusical {
+import { IVisitavel } from "./IVisitavel";
+import { IVisitor } from "./IVisitor";
+
+export class Musica implements IComponenteMusical, IVisitavel {
   titulo: string;
   duracao: number;
   genero: string;
@@ -15,6 +18,10 @@ export class Musica implements IComponenteMusical {
     this.genero = genero;
     this.artistas = [];
     this.estado = new Concluida();
+  }
+
+  accept(visitor: IVisitor): void {
+    visitor.visitMusica(this);
   }
 
   setEstado(estado: EstadoMusica): void {
@@ -32,8 +39,4 @@ export class Musica implements IComponenteMusical {
   stop(): void {
     this.estado.stop(this);
   }
-
-  //   accept(visitor: Visitor): void {
-  //     visitor.visitMusica(this);
-  //   }
 }

@@ -1,5 +1,6 @@
 import { IVisitor } from "./IVisitor";
 import { Musica } from "./Musica";
+import { IVisitavel } from "./IVisitavel"
 export class Playlist implements IVisitavel {
   titulo: String;
   musicas: Musica[];
